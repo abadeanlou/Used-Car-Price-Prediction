@@ -13,7 +13,7 @@ Predict the selling price of a used car using its attributes (year, mileage, fue
 
 ## 📂 Dataset Overview
 
-**Source:** [Kaggle: Used Car Price Prediction Dataset](https://www.kaggle.com/datasets/ziya07/smart-mobility-traffic-dataset)  
+**Source:** [Kaggle: Used Car Price Prediction Dataset]([https://www.kaggle.com/datasets/ziya07/smart-mobility-traffic-dataset](https://www.kaggle.com/datasets/taeefnajib/used-car-price-prediction-dataset/data))  
 **Records:** 4,009 entries
 
 **Features:**
