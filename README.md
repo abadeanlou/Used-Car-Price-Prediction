@@ -69,49 +69,74 @@ Predict the selling price of a used car using its attributes (year, mileage, fue
 
 ---
 
-### 3. Modeling
+## 3. Modeling
 
-**Model Selection:**
+### Model Selection
 
-- Regression algorithms (e.g., Linear Regression, Random Forest Regressor)
+Multiple regression algorithms were evaluated:
 
-**Preprocessing:**
+- Linear Regression  
+- Ridge Regression  
+- Lasso Regression  
+- Random Forest Regressor  
+- Gradient Boosting Regressor  
+- XGBoost Regressor *(if installed)*  
+- LightGBM Regressor *(if installed)*
 
-- Feature scaling applied to numerical features
-- Train-test split for robust evaluation
+### Preprocessing
 
-**Hyperparameter Tuning:**
+- Feature scaling applied to numerical features  
+- Train-test split used for robust evaluation  
 
-- Grid search for optimal Random Forest parameters
+### Cross-Validation
+
+- 5-fold cross-validation performed for each model to ensure fair comparison
+
+### Hyperparameter Tuning
+
+- Grid search applied to find optimal parameters for ensemble models
 
 ---
 
-### 4. Evaluation
+## 4. Evaluation
 
-**Metrics:**
+### Metrics
 
-- RMSE (Root Mean Squared Error)
-- MAE (Mean Absolute Error)
-- R² score
+- **R²** (coefficient of determination)  
+- **RMSE** (Root Mean Squared Error)  
+- **MAE** (Mean Absolute Error)  
 
-**Feature Importance:**
+### Feature Importance
 
 - Identified which features most strongly influence price predictions
 
-**Error Analysis:**
+### Error Analysis
 
-- Examined residuals and mispredicted cases for further insights
+- Examined residuals and mispredicted cases to extract further insights
 
 ---
 
 ## 📊 Key Results
 
-| Model             | Test RMSE     | Test MAE      | R² Score      |
-|------------------|----------------|---------------|---------------|
-| Random Forest     | [Insert value] | [Insert value] | [Insert value] |
-| Linear Regression | [Insert value] | [Insert value] | [Insert value] |
+### Cross-Validation Performance
 
-**Top Predictive Features:**
+| Model            | R² (CV) | RMSE (CV)    |
+|------------------|--------:|-------------:|
+| LightGBM         | 0.866   | 9,533.74     |
+| XGBoost          | 0.860   | 9,740.78     |
+| GradientBoosting | 0.833   | 10,649.21    |
+| RandomForest     | 0.827   | 10,836.48    |
+| Ridge            | 0.640   | 15,653.04    |
+| Lasso            | 0.640   | 15,653.44    |
+| LinearRegression | 0.640   | 15,653.45    |
+
+### **Best Model: LightGBM**
+
+- **Test MAE:** 5,253.88  
+- **Test RMSE:** 7,892.63  
+- **Test R²:** 0.89  
+
+### Top Predictive Features
 
 - Car age  
 - Mileage  
@@ -119,23 +144,22 @@ Predict the selling price of a used car using its attributes (year, mileage, fue
 - Engine size and horsepower  
 - Accident history, clean title status  
 
-**Summary:**  
-Random Forest provided the most accurate predictions, capturing non-linear relationships between features and price.
+> Ensemble models (LightGBM, XGBoost, GradientBoosting, RandomForest) substantially outperform linear models by capturing non-linear relationships between features and price.
 
 ---
 
 ## 🔍 Insights
 
-- Car age and mileage are the strongest predictors of price depreciation.
-- Brand and model significantly affect baseline price.
-- Accident history and clean title status impact resale value.
+- Car age and mileage are the strongest predictors of price depreciation.  
+- Brand and model significantly affect baseline price.  
+- Accident history and clean title status impact resale value.  
 - Engine specs (size, horsepower) and transmission type add predictive power.
 
 ---
 
 ## 🚀 How to Use
 
-### 1. Clone the Repository
+### Clone the Repository
 
 ```bash
 git clone https://github.com/yourusername/used-car-price-prediction.git
